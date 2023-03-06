@@ -1,0 +1,108 @@
+﻿<Window x:Class="PP02.GlavnayaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PP02"
+        mc:Ignorable="d"
+        Title="GlavnayaWindow" Height="450" Width="800">
+    <Grid>
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выйти" Click="ExitProgramMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="mainTabControl" Margin="0,20,0,0">
+            <TabItem Header="Компоненты">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Label Content="Название компонента"/>
+                        <TextBox x:Name="componentNameTextBox" Width="200" HorizontalAlignment="Left"/>
+                        <Label Content="Кол-во на складе"/>
+                        <TextBox x:Name="ammountTextBox" Width="200" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="0,15,0,0">
+                        <Button x:Name="addComponentButton" Content="Добавить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        <Button x:Name="updateComponentButton" Content="Изменить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        <Button x:Name="deleteComponentButton" Content="Удалить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                    </StackPanel>
+                    <DataGrid x:Name="componentDataGrid" Grid.ColumnSpan="2" Margin="0,110,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Приборы">
+                <Grid>
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" Height="30" VerticalAlignment="Top">
+                        <Button x:Name="addDeviceButton" Content="Добавить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        <Button x:Name="updateDeviceButton" Content="Изменить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        <Button x:Name="deleteDeviceButton" Content="Удалить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                    </StackPanel>
+                    <DataGrid x:Name="deviceDataGrid" Margin="0,35,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Бухгалтерия">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Content="Описание траты"/>
+                            <TextBox x:Name="transactionDescriptionTextBox" Width="200" Height="50" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                            <Label Content="Сумма траты"/>
+                            <TextBox x:Name="transactionAmountTextBox" Width="200" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="0,15,0,0">
+                            <Button x:Name="addTransactionButton" Content="Добавить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                            <Button x:Name="updateTransactionButton" Content="Изменить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                            <Button x:Name="deleteTransactionButton" Content="Удалить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        </StackPanel>
+                        <DataGrid x:Name="transactionDataGrid" Margin="0,130,0,0" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Профили">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Content="Логин"/>
+                            <TextBox x:Name="loginTextBox" Width="150" HorizontalAlignment="Left"/>
+                            <Label Content="Пароль"/>
+                            <TextBox x:Name="passwordTextBox" Width="150" HorizontalAlignment="Left"/>
+                            <Label Content="Роль"/>
+                            <ComboBox x:Name="positionComboBox" Width="150" HorizontalAlignment="Left">
+                                <!--<ComboBoxItem>Техник</ComboBoxItem>
+                                <ComboBoxItem>Бухгалтер</ComboBoxItem>-->
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="0,15,0,0">
+                            <Button x:Name="addUserButton" Content="Добавить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                            <Button x:Name="updateUserButton" Content="Изменить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                            <Button x:Name="deleteUserButton" Content="Удалить" Width="100" HorizontalAlignment="Left" Margin="5,5"/>
+                        </StackPanel>
+                        <DataGrid x:Name="userDataGrid" Margin="0,150,0,0" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
